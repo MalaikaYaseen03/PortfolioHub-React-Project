@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useFetchCache } from "../Contexts/FetchCacheContext";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [fetchKey, setFetchKey] = useState(0);
+
+  const { getCachedData, setCachedData } = useFetchCache();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -16,9 +19,22 @@ const useFetch = (url) => {
       setIsPending(true);
 
       try {
-        const response = await axios.get(url, { signal, timeout: 10000 });
+        // Check if data is already cached in global state
+        const cachedData = getCachedData(url);
+        if (cachedData) {
+          setData(cachedData);
+          setIsPending(fasle);
+          setError(null);
+          return;
+        }
 
-        setData(response.data); // Assign response data
+        // Fetch data if not cached
+        const response = await axios.get(url, { signal, timeout: 10000 });
+        const result = response.data;
+
+        // Cache the response in global state
+        setCachedData(url, result);
+        setData(result); // Assign response data
         setError(null); // Clear error state on success
       } catch (error) {
         if (axios.isCancel(error)) {
@@ -34,9 +50,12 @@ const useFetch = (url) => {
 
     // Cleanup function to abort the fetch if the component unmounts or if url changes
     return () => controller.abort();
-  }, [url, fetchKey]);
+  }, [url, fetchKey, getCachedData, setCachedData]);
 
-  const refetch = () => setFetchKey((prevKey) => prevKey + 1);
+  const refetch = () => {
+    setCachedData(url, null); // Clear the cache for the URL
+    setFetchKey((prevKey) => prevKey + 1); // Trigger a re-fetch
+  };
   return { data, setData, error, isPending, refetch };
 };
 

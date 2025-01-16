@@ -28,7 +28,10 @@ const Footer = () => {
                   © Copyright <strong>PortfolioHub</strong>. All Rights Reserved
                 </p>
                 <div className="credits">
-                  Designed by <Link to="/">PortfolioHub</Link>
+                  Designed by{" "}
+                  <Link to="/" target="_blank">
+                    PortfolioHub
+                  </Link>
                 </div>
               </div>
             </div>
