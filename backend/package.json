@@ -1,0 +1,41 @@
+{
+  "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.25.9"
+  },
+  "name": "portfoliohub---showcase-your-projects",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "browserslist": "^4.24.4",
+    "caniuse-lite": "^1.0.30001692",
+    "convert-source-map": "^2.0.0",
+    "cors": "^2.8.5",
+    "debug": "^4.4.0",
+    "dotenv": "^16.4.7",
+    "electron-to-chromium": "^1.5.83",
+    "escalade": "^3.2.0",
+    "express": "^4.21.2",
+    "gensync": "^1.0.0-beta.2",
+    "globals": "^11.12.0",
+    "js-tokens": "^4.0.0",
+    "jsesc": "^3.1.0",
+    "json5": "^2.2.3",
+    "lru-cache": "^5.1.1",
+    "mongoose": "^8.9.5",
+    "ms": "^2.1.3",
+    "node-releases": "^2.0.19",
+    "nodemon": "^3.1.9",
+    "picocolors": "^1.1.1",
+    "semver": "^6.3.1",
+    "update-browserslist-db": "^1.1.2",
+    "yallist": "^3.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
