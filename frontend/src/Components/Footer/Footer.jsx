@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { toggleBacktotop, scrollToTop } from "./Footer";
+import "./Footer.css";
 
 const Footer = () => {
   useEffect(() => {
