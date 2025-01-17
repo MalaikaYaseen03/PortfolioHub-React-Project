@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import { toggleBacktotop, scrollToTop } from "./Footer";
 import "./Footer.css";
+import BacktotopBtn from "./BacktotopBtn";
 
 const Footer = () => {
   useEffect(() => {
@@ -39,14 +40,7 @@ const Footer = () => {
         </div>
       </footer>
       {/* End  Footer */}
-      {/*Back to top button*/}
-      <Link
-        to="/"
-        className="back-to-top d-flex align-items-center justify-content-center"
-        onClick={scrollToTop}
-      >
-        <i className="bi bi-arrow-up-short"></i>
-      </Link>
+      <BacktotopBtn scrollToTop={scrollToTop} />
     </>
   );
 };
