@@ -2,14 +2,21 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config({ path: "./api/.env" });
 const path = require("path");
+const connecttoDB = require("../Database/dbConfig");
 
 const app = express();
+// Connect to the Database
+connecttoDB();
 
+// Middleware
+app.use(express.json());
+
+// CORS configuration
 app.use(
   cors({
     origin: function (origin, callback) {
-      const allowedOrigins = ["http://localhost:3000"];
-      if (!origin || allowedOrigins) {
+      const allowedOrigins = ["http://localhost:5000"];
+      if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
@@ -20,16 +27,20 @@ app.use(
   })
 );
 
+// IMPORT ROUTES
+const PersonalSkills_Route = require("../Routes/PersonalSkillsRoute");
+
+// USE ROUTES
+
+app.use("/api/v1/personalSkills", PersonalSkills_Route);
+
 // Simple Route
 app.get("/", (req, res) => {
   res.send("Welcome to API!");
 });
 
-// USE ROUTES
-app.use(express.json);
-
 // For Unknown API route
-app.use("/api/*", (req, res, next) => {
+app.use("/api/*", (req, res) => {
   res.status(404).json({ message: "API route not found" });
 });
 
@@ -44,7 +55,7 @@ app.get("*", (req, res) => {
   }
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
 });
