@@ -23,7 +23,7 @@ const useFetch = (url) => {
         const cachedData = getCachedData(url);
         if (cachedData) {
           setData(cachedData);
-          setIsPending(fasle);
+          setIsPending(false);
           setError(null);
           return;
         }

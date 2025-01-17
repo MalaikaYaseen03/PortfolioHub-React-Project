@@ -1,0 +1,47 @@
+/*--------------------------------------------------------------
+# Personal Skills Section
+--------------------------------------------------------------*/
+.personalSkills {
+  height: 100vh;
+  position: relative;
+  color: #fff;
+}
+
+.personalSkills .personalSkills-content {
+  text-align: center;
+  position: absolute;
+}
+
+.personalSkills .overlay-itro {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0px;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.personalSkills .personalSkills-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+@media (min-width: 768px) {
+  .personalSkills .personalSkills-title {
+    font-size: 4.5rem;
+  }
+}
+
+.personalSkills .personalSkills-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .personalSkills .personalSkills-subtitle {
+    font-size: 2.5rem;
+  }
+}
