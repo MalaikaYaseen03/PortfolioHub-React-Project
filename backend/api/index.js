@@ -28,11 +28,13 @@ app.use(
 );
 
 // IMPORT ROUTES
-const PersonalSkills_Route = require("../Routes/PersonalSkillsRoute");
+const PersonalSkillsRoute = require("../Routes/PersonalSkillsRoute");
+const AboutRoute = require("../Routes/AboutRoute");
 
 // USE ROUTES
 
-app.use("/api/v1/personalSkills", PersonalSkills_Route);
+app.use("/api/v1/personalSkills", PersonalSkillsRoute);
+app.use("/api/v1/about", AboutRoute);
 
 // Simple Route
 app.get("/", (req, res) => {
