@@ -29,19 +29,46 @@
   font-size: 3rem;
 }
 
+.personalSkills .personalSkills-subtitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.bg-image {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+}
+
+.display-table {
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/*--------------------------------------------------------------
+# Responsiveness 
+--------------------------------------------------------------*/
 @media (min-width: 768px) {
   .personalSkills .personalSkills-title {
     font-size: 4.5rem;
   }
 }
 
-.personalSkills .personalSkills-subtitle {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
 @media (min-width: 768px) {
   .personalSkills .personalSkills-subtitle {
     font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bg-image {
+    background-attachment: scroll;
   }
 }
