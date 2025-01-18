@@ -1,5 +1,5 @@
 import { HashLink as Link } from "react-router-hash-link";
-const BacktotopBtn = () => {
+const BacktotopBtn = ({ scrollToTop }) => {
   return (
     <>
       {/*Back to top button*/}
