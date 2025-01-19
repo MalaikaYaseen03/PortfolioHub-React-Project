@@ -10,6 +10,7 @@ const Home = () => {
 
   const { data: personalSkills } = useFetch(`${API_URL}/api/v1/personalSkills`);
   const { data: about } = useFetch(`${API_URL}/api/v1/about`);
+  const { data: services } = useFetch(`${API_URL}/api/v1/services`);
   return (
     <>
       <main id="main">
