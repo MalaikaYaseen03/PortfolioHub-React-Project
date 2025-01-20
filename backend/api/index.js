@@ -36,7 +36,7 @@ const ServiceRoute = require("../Routes/ServiceRoute");
 
 app.use("/api/v1/personalSkills", PersonalSkillsRoute);
 app.use("/api/v1/about", AboutRoute);
-app.use("/api/v1/services", AboutRoute);
+app.use("/api/v1/services", ServiceRoute);
 
 // Simple Route
 app.get("/", (req, res) => {
