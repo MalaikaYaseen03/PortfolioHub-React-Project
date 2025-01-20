@@ -1,6 +1,4 @@
-import Swal from "sweetalert2";
-import { useAuth } from "../CMSAdmin/Auth/AuthContext";
-
+import "./Services.css";
 const Services = ({ title, subtitle, services = [] }) => {
   return (
     <>

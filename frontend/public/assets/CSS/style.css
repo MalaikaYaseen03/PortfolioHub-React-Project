@@ -129,30 +129,6 @@ a:hover {
   margin-top: 4rem;
 }
 
-/*--/ Title A /--*/
-.title-box {
-  margin-bottom: 4rem;
-}
-
-.title-a {
-  text-decoration: none;
-  font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.subtitle-a {
-  text-decoration: none;
-  color: #4e4e4e;
-}
-
-.line-mf {
-  width: 40px;
-  height: 5px;
-  background-color: #0078ff;
-  margin: 0 auto;
-}
-
 /*------/ Box /------*/
 .box-pl2 {
   padding-left: 2rem;
