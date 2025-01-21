@@ -31,12 +31,14 @@ app.use(
 const PersonalSkillsRoute = require("../Routes/PersonalSkillsRoute");
 const AboutRoute = require("../Routes/AboutRoute");
 const ServiceRoute = require("../Routes/ServiceRoute");
+const CounterRoute = require("../Routes/CounterRoute");
 
 // USE ROUTES
 
 app.use("/api/v1/personalSkills", PersonalSkillsRoute);
 app.use("/api/v1/about", AboutRoute);
 app.use("/api/v1/services", ServiceRoute);
+app.use("/api/v1/counter", CounterRoute);
 
 // Simple Route
 app.get("/", (req, res) => {
