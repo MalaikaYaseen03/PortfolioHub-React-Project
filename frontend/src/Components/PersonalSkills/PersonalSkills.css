@@ -34,7 +34,7 @@
   font-weight: 600;
 }
 
-.bg-image {
+.personalSkills .bg-image {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -68,7 +68,7 @@
 }
 
 @media (max-width: 1024px) {
-  .bg-image {
+  .personalSkills .bg-image {
     background-attachment: scroll;
   }
 }

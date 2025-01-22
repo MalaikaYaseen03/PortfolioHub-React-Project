@@ -166,6 +166,10 @@
   visibility: visible;
 }
 
+/*--------------------------------------------------------------
+# Responsiveness 
+--------------------------------------------------------------*/
+
 @media (max-width: 1366px) {
   .navbar .dropdown .dropdown ul {
     left: -90%;
@@ -186,16 +190,6 @@
   display: none;
   line-height: 0;
   transition: 0.5s;
-}
-
-@media (max-width: 1024px) {
-  .mobile-nav-toggle {
-    display: block;
-  }
-
-  .navbar ul {
-    display: none;
-  }
 }
 
 .navbar-mobile {
@@ -259,4 +253,16 @@
 .navbar-mobile .getstarted,
 .navbar-mobile .getstarted:focus {
   margin: 15px;
+}
+/*--------------------------------------------------------------
+# Responsiveness 
+--------------------------------------------------------------*/
+@media (max-width: 1024px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .navbar ul {
+    display: none;
+  }
 }
