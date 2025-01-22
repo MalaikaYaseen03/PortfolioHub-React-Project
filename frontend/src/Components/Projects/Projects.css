@@ -1,0 +1,55 @@
+/*--------------------------------------------------------------
+# Projects
+--------------------------------------------------------------*/
+.project-box {
+  margin-bottom: 2rem;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  background-color: #fff;
+}
+
+.project-box:hover img {
+  transform: scale(1.3);
+}
+
+.project-img {
+  width: 100%; /* Landscape width */
+  height: 185px; /* Landscape height */
+  background-color: #f0f0f0; /* Optional: Background color for whitespace */
+  display: flex;
+  justify-content: center; /* Horizontally center image */
+  align-items: center; /* Vertically center image */
+  overflow: hidden; /* Prevent overflow */
+  border: 1px solid #ccc; /* Optional: Border for visualization */
+}
+
+.project-content {
+  padding: 2rem 3% 1rem 4%;
+}
+
+.project-content .p-more {
+  color: #4e4e4e;
+  font-size: 0.8rem;
+}
+
+.project-content .p-more .p-ctegory {
+  color: #0078ff;
+}
+
+.project-content .p-like {
+  font-size: 2.5rem;
+  color: #0078ff;
+  float: right;
+}
+
+.project-content .p-like a {
+  color: #0078ff;
+}
+
+.project-content .p-like .num-like {
+  font-size: 0.7rem;
+}
+
+.p-title {
+  font-size: 1.2rem;
+}

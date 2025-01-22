@@ -4,6 +4,7 @@ import useFetch from "../CustomHook/useFetch";
 import About from "../About/About";
 import Services from "../Services/Services";
 import Counter from "../Counter/Counter";
+import Projects from "../Projects/Projects";
 const Home = () => {
   const API_URL = useMemo(
     () => process.env.REACT_APP_BACKEND_URL || "http://localhost:8080",
@@ -14,6 +15,7 @@ const Home = () => {
   const { data: about } = useFetch(`${API_URL}/api/v1/about`);
   const { data: services } = useFetch(`${API_URL}/api/v1/services`);
   const { data: counter } = useFetch(`${API_URL}/api/v1/counter`);
+  const { data: projects } = useFetch(`${API_URL}/api/v1/projects`);
 
   return (
     <>
@@ -30,6 +32,13 @@ const Home = () => {
           />
         )}
         {counter && <Counter counter={counter} />}
+        {projects && (
+          <Projects
+            projects={projects}
+            title="Projects"
+            subtitle="Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+          />
+        )}
       </main>
     </>
   );
