@@ -33,7 +33,7 @@ const ProjectSchema = new Schema({
       message: (props) => `${props.value} is not a valid URL!`,
     },
   },
-  workDetailsId: {
+  projectDetailsId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "ProjectDetailsModel", // Ensure this matches the name of your `workDetails` model
     required: false, // Make it required if necessary
