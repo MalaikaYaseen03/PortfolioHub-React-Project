@@ -1,5 +1,6 @@
 const AboutModel = require("../Models/AboutSchema");
 
+// FUNCTION FOR GET REQUEST
 const getAboutInfo = async (req, res) => {
   try {
     // Fetch data from the database

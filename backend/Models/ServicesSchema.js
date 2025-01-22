@@ -1,4 +1,7 @@
+//need to make models to use for mongodb also called mongoose schema
+//include mongoose
 const mongoose = require("mongoose");
+// Extract schema from mongoose
 const Schema = mongoose.Schema;
 
 //advance mongodb query search query

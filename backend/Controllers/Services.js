@@ -1,5 +1,6 @@
 const ServiceModel = require("../Models/ServicesSchema");
 
+// FUNCTION FOR GET REQUEST
 const getServiceInfo = async (req, res) => {
   try {
     // Fetch data from the database

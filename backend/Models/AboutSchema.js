@@ -31,6 +31,6 @@ const AboutSchema = new Schema({
     required: false,
   },
 });
-
+//two argument need in schema 1st one is name  and 2nd one is Schema
 const AboutModel = mongoose.model("About", AboutSchema);
 module.exports = AboutModel;

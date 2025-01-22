@@ -1,5 +1,6 @@
 const Personal_SkillsModel = require("../Models/PersonalSkillsSchema");
 
+// FUNCTION FOR GET REQUEST
 const getPersonalSkills = async (req, res) => {
   try {
     // Fetch data from the database
