@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.sect-pt4 {
+#about .sect-pt4 {
   padding-top: 4rem;
 }
 .box-shadow-full {
@@ -30,16 +30,16 @@
 }
 
 /*--/ Title Left /--*/
-.title-box-2 {
+.about-info .title-box-2 {
   margin-bottom: 3rem;
 }
 
-.title-left {
+.about-info .title-left {
   font-size: 2rem;
   position: relative;
 }
 
-.title-left:before {
+.about-info .title-left:before {
   content: "";
   position: absolute;
   height: 3px;
@@ -48,7 +48,7 @@
   bottom: -12px;
 }
 /*--/ Title s /--*/
-.title-s {
+.about-info .title-s {
   font-weight: 600;
   color: #1e1e1e;
   font-size: 1.1rem;

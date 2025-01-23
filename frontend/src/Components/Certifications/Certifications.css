@@ -1,0 +1,133 @@
+/*--------------------------------------------------------------
+# Certification
+--------------------------------------------------------------*/
+.card-box {
+  max-height: 497.3px;
+  margin-top: 2rem;
+}
+#certifications {
+  padding-bottom: 5rem;
+}
+#certifications .sect-pt4 {
+  padding-top: 4rem;
+}
+
+.card-certification .card-body {
+  position: relative;
+}
+
+.card-img {
+  width: 100%; /* Landscape width */
+  height: 236px; /* Landscape height */
+  background-color: #f0f0f0; /* Optional: Background color for whitespace */
+  display: flex;
+  justify-content: center; /* Horizontally center image */
+  align-items: center; /* Vertically center image */
+  overflow: hidden; /* Prevent overflow */
+  border: 1px solid #ccc; /* Optional: Border for visualization */
+}
+
+.img-fluid {
+  display: block;
+  margin: auto;
+}
+
+.card-certification .card-category-box {
+  position: absolute;
+  text-align: center;
+  top: -16px;
+  left: 15px;
+  right: 15px;
+  line-height: 25px;
+  overflow: hidden;
+}
+
+.card-certification .card-category {
+  display: inline-block;
+  color: #fff;
+  padding: 0 15px 5px;
+  overflow: hidden;
+  background-color: #0078ff;
+  border-radius: 4px;
+}
+
+.card-certification .card-category .category {
+  color: #fff;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1px;
+  margin-bottom: 0;
+}
+/*--/ Title A /--*/
+#certifications .title-box {
+  margin-bottom: 4rem;
+}
+
+#certifications .title-a {
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#certifications .subtitle-a {
+  text-decoration: none;
+  color: #4e4e4e;
+}
+
+#certifications .line-mf {
+  width: 40px;
+  height: 5px;
+  background-color: #0078ff;
+  margin: 0 auto;
+}
+
+.card-certification .card-title {
+  font-size: 1.3rem;
+  margin-top: 0.6rem;
+}
+
+.card-certification .card-description {
+  color: #4e4e4e;
+}
+
+.card-certification .post-author {
+  display: inline-block;
+}
+
+.card-certification .post-date {
+  color: #4e4e4e;
+  /* display: inline-block; */
+  float: right;
+}
+/*--------------------------------------------------------------
+# Responsiveness 
+--------------------------------------------------------------*/
+@media (max-width: 1199px) {
+  #certifications {
+    padding-bottom: 3rem;
+  }
+  .card-box {
+    margin-top: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  #certifications {
+    padding-bottom: 3rem;
+  }
+  .card-box {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 413px) {
+  #certifications .title-a {
+    font-size: 2rem;
+  }
+  .card-box {
+    margin-top: 2rem;
+    max-height: 500px;
+    margin-bottom: 2rem;
+  }
+}

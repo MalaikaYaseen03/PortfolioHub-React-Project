@@ -41,13 +41,13 @@
   background-position: center center;
 }
 
-.display-table {
+.personalSkills .display-table {
   width: 100%;
   height: 100%;
   display: table;
 }
 
-.table-cell {
+.personalSkills .table-cell {
   display: table-cell;
   vertical-align: middle;
 }

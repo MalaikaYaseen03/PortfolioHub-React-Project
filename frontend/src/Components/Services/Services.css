@@ -44,23 +44,23 @@
   color: #4e4e4e;
 }
 /*--/ Title A /--*/
-.title-box {
+#services .title-box {
   margin-bottom: 4rem;
 }
 
-.title-a {
+#services .title-a {
   text-decoration: none;
   font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.subtitle-a {
+#services .subtitle-a {
   text-decoration: none;
   color: #4e4e4e;
 }
 
-.line-mf {
+#services .line-mf {
   width: 40px;
   height: 5px;
   background-color: #0078ff;
