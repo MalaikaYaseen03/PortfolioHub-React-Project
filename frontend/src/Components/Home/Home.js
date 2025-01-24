@@ -6,6 +6,7 @@ import Services from "../Services/Services";
 import Counter from "../Counter/Counter";
 import Projects from "../Projects/Projects";
 import Certifications from "../Certifications/Certifications";
+import Testimonial from "../Testimonials/Testimonials";
 const Home = () => {
   const API_URL = useMemo(
     () => process.env.REACT_APP_BACKEND_URL || "http://localhost:8080",
@@ -18,6 +19,7 @@ const Home = () => {
   const { data: counter } = useFetch(`${API_URL}/api/v1/counter`);
   const { data: projects } = useFetch(`${API_URL}/api/v1/projects`);
   const { data: certifications } = useFetch(`${API_URL}/api/v1/certifications`);
+  const { data: testimonials } = useFetch(`${API_URL}/api/v1/testimonials`);
 
   return (
     <>
@@ -41,6 +43,7 @@ const Home = () => {
             subtitle="We turn ideas into impactful results."
           />
         )}
+        {testimonials && <Testimonial testimonials={testimonials} />}
         {certifications && (
           <Certifications
             certifications={certifications}

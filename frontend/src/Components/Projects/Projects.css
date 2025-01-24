@@ -7,7 +7,9 @@
   backface-visibility: hidden;
   background-color: #fff;
 }
-
+.sect-pt4 {
+  padding-top: 4rem;
+}
 .project-box:hover img {
   transform: scale(1.3);
 }
@@ -52,4 +54,28 @@
 
 .p-title {
   font-size: 1.2rem;
+}
+
+/*--/ Title A /--*/
+.portfolio-mf .title-box {
+  margin-bottom: 4rem;
+}
+
+.portfolio-mf .title-a {
+  text-decoration: none;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.portfolio-mf .subtitle-a {
+  text-decoration: none;
+  color: #4e4e4e;
+}
+
+.portfolio-mf .line-mf {
+  width: 40px;
+  height: 5px;
+  background-color: #0078ff;
+  margin: 0 auto;
 }
