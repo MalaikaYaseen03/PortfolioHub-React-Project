@@ -7,6 +7,8 @@ import Counter from "../Counter/Counter";
 import Projects from "../Projects/Projects";
 import Certifications from "../Certifications/Certifications";
 import Testimonial from "../Testimonials/Testimonials";
+import Publications from "../Publications/Publications";
+
 const Home = () => {
   const API_URL = useMemo(
     () => process.env.REACT_APP_BACKEND_URL || "http://localhost:8080",
@@ -20,6 +22,7 @@ const Home = () => {
   const { data: projects } = useFetch(`${API_URL}/api/v1/projects`);
   const { data: certifications } = useFetch(`${API_URL}/api/v1/certifications`);
   const { data: testimonials } = useFetch(`${API_URL}/api/v1/testimonials`);
+  const { data: publications } = useFetch(`${API_URL}/api/v1/publications`);
 
   return (
     <>
@@ -51,6 +54,7 @@ const Home = () => {
             subtitle="Showcasing milestones of excellence"
           />
         )}
+        {publications && <Publications publications={publications} />}
       </main>
     </>
   );
