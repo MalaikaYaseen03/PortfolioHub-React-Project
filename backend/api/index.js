@@ -35,6 +35,7 @@ const CounterRoute = require("../Routes/CounterRoute");
 const ProjectsRoute = require("../Routes/ProjectsRoute");
 const CertificationRoute = require("../Routes/CertificationRoute");
 const TestimonialRoute = require("../Routes/TestimonialRoute");
+const PublicationRoute = require("../Routes/PublicationRoute");
 
 // USE ROUTES
 
@@ -45,6 +46,7 @@ app.use("/api/v1/counter", CounterRoute);
 app.use("/api/v1/projects", ProjectsRoute);
 app.use("/api/v1/certifications", CertificationRoute);
 app.use("/api/v1/testimonials", TestimonialRoute);
+app.use("/api/v1/publications", PublicationRoute);
 
 // Simple Route
 app.get("/", (req, res) => {
