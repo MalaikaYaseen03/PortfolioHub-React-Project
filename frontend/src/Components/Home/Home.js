@@ -8,6 +8,7 @@ import Projects from "../Projects/Projects";
 import Certifications from "../Certifications/Certifications";
 import Testimonial from "../Testimonials/Testimonials";
 import Publications from "../Publications/Publications";
+import Contact from "../Contact/Contact";
 
 const Home = () => {
   const API_URL = useMemo(
@@ -23,6 +24,7 @@ const Home = () => {
   const { data: certifications } = useFetch(`${API_URL}/api/v1/certifications`);
   const { data: testimonials } = useFetch(`${API_URL}/api/v1/testimonials`);
   const { data: publications } = useFetch(`${API_URL}/api/v1/publications`);
+  const { data: contact } = useFetch(`${API_URL}/api/v1/contact`);
 
   return (
     <>
@@ -55,6 +57,7 @@ const Home = () => {
           />
         )}
         {publications && <Publications publications={publications} />}
+        {contact && <Contact contact={contact} />}
       </main>
     </>
   );
