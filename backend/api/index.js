@@ -37,11 +37,13 @@ const CertificationRoute = require("../Routes/CertificationRoute");
 const TestimonialRoute = require("../Routes/TestimonialRoute");
 const PublicationRoute = require("../Routes/PublicationRoute");
 const ContactRoute = require("../Routes/ContactRoute");
+const SkillsRoute = require("../Routes/SkillsRoute");
 
 // USE ROUTES
 
 app.use("/api/v1/personalSkills", PersonalSkillsRoute);
 app.use("/api/v1/about", AboutRoute);
+app.use("/api/v1/skills", SkillsRoute);
 app.use("/api/v1/services", ServiceRoute);
 app.use("/api/v1/counter", CounterRoute);
 app.use("/api/v1/projects", ProjectsRoute);
