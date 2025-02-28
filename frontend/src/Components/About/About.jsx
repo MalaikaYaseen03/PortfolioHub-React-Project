@@ -1,6 +1,7 @@
+import Skills from "../Skills/Skills";
 import "./About.css";
 
-const About = ({ about = [] }) => {
+const About = ({ about = [], skills = [] }) => {
   return (
     <>
       {/* About Section */}
@@ -47,6 +48,14 @@ const About = ({ about = [] }) => {
                           </div>
                         </div>
                       ))}
+                      <div className="skill-mf">
+                        {skills && skills.length > 0 && (
+                          <div>
+                            <p className="title-s">Skills</p>
+                            <Skills skills={skills} />
+                          </div>
+                        )}
+                      </div>
                     </div>
 
                     {about.map((item) => (

@@ -1,0 +1,33 @@
+/*--------------------------------------------------------------
+# Skills
+--------------------------------------------------------------*/
+.skill-mf .skill-box {
+  max-width: 30rem;
+  margin: 0;
+}
+
+.skill-content p {
+  text-align: justify;
+  margin: 0;
+}
+.skill-mf span {
+  color: #4e4e4e;
+}
+
+.skill-mf .progress {
+  background-color: #cde1f8;
+  margin: 0.5rem 0 0.5rem 0;
+  border-radius: 0;
+  height: 0.7rem;
+}
+
+.skill-mf .progress .progress-bar {
+  height: 0.7rem;
+  background-color: #0078ff;
+}
+/*--/ Title s /--*/
+.skill-mf .title-s {
+  font-weight: 600;
+  color: #1e1e1e;
+  font-size: 1.1rem;
+}

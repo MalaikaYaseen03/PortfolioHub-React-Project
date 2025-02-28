@@ -18,6 +18,7 @@ const Home = () => {
 
   const { data: personalSkills } = useFetch(`${API_URL}/api/v1/personalSkills`);
   const { data: about } = useFetch(`${API_URL}/api/v1/about`);
+  const { data: skills } = useFetch(`${API_URL}/api/v1/skills`);
   const { data: services } = useFetch(`${API_URL}/api/v1/services`);
   const { data: counter } = useFetch(`${API_URL}/api/v1/counter`);
   const { data: projects } = useFetch(`${API_URL}/api/v1/projects`);
@@ -32,7 +33,7 @@ const Home = () => {
         {personalSkills && (
           <PersonalSkills personalSkills={personalSkills || []} />
         )}
-        {about && <About about={about || []} />}
+        {about && <About about={about || []} skills={skills || []} />}
         {services && (
           <Services
             services={services}
