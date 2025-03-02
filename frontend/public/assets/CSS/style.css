@@ -276,3 +276,94 @@ a:hover {
   line-height: 1.5;
   border-radius: 0.3rem;
 }
+
+/*--------------------------------------------------------------
+#  Form
+--------------------------------------------------------------*/
+.form {
+  min-height: 300px;
+}
+.form-container {
+  max-width: 600px;
+  margin: 50px auto 0;
+  padding: 10px;
+}
+
+.form h2 {
+  color: black;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.form input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="datetime"],
+input[type="file"],
+input[type="number"],
+.form textarea {
+  width: 100%;
+  padding: 10px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  border-radius: 5px;
+}
+.form input[type="search"] {
+  width: 100%;
+  padding: 10px 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+  border-radius: 5px;
+}
+
+.form .submit {
+  background: #128f32;
+  color: #fff;
+  border: 0;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.form .submit:hover {
+  transform: scale(1.1);
+}
+
+.form .add-more-btn {
+  background: #0062d3;
+  color: #fff;
+  border: 0;
+  padding: 10px 25px;
+  margin-right: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.form .add-more-btn:hover {
+  transform: scale(1.1);
+}
+
+.form .reset {
+  background: #0062d3;
+  color: #fff;
+  border: 0;
+  padding: 10px 25px;
+  margin-right: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.form .reset:hover {
+  transform: scale(1.1);
+}
+
+.buttons {
+  margin-top: 20px;
+}

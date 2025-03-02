@@ -5,7 +5,7 @@ import Footer from "./Components/Footer/Footer.jsx";
 import Home from "./Components/Home/Home.js";
 import { Routes, Route } from "react-router-dom";
 import Form from "./CMSAdmin/Forms/Forms.jsx";
-import SignUp from "./CMSAdmin/Auth/Signup/Signup.jsx";
+import Signup from "./CMSAdmin/Auth/Signup/Signup.jsx";
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
       <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/form" render={() => <Form />} />
-          <Route path="/form/signup-form" render={() => <SignUp />} />
+          <Route path="/form" element={<Form />} />
+          <Route path="/form/signup-form" element={<Signup />} />
         </Routes>
       </div>
       {/* Footer */}

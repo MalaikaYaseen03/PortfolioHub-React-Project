@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import validationSchema from "./SignupValidation";
 
-const SignUp = () => {
+const Signup = () => {
   const {
     register,
     formState: { errors },
@@ -131,4 +131,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;
