@@ -1,12 +1,19 @@
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import "./Signup.css";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import validationSchema from "./SignupValidation";
+import { useState } from "react";
+import { useAuth } from "../AuthContext/AuthContext";
 
 const Signup = () => {
+  const { onSignup } = useAuth();
+  const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const {
     register,
+    handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
@@ -17,6 +24,61 @@ const Signup = () => {
       confirmPassword: "",
     },
   });
+
+  // console.log("Signup component received onSignup prop:", onSignup);
+
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+
+    try {
+      // Make a request to your backend to handle signup
+      const response = await fetch(`${API_URL}/api/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: data.email,
+          password: data.password,
+          username: data.username,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        // Signup successful
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text:
+            result.message ||
+            "Signup successful! Please check your email for verification.",
+        });
+        // console.log("userRecord", result.UserRecord);
+        // console.log("userRecord", result.UserRecord.email);
+
+        onSignup(result.user, false);
+        // Optionally redirect user after successful signup
+      } else {
+        // Handle backend error response
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: result.message || "Signup failed. Please try again.",
+        });
+      }
+    } catch (error) {
+      // Handle general errors
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "An error occurred. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -33,7 +95,7 @@ const Signup = () => {
                 <h2>SignUp</h2>
               </div>
               <div className="col-12">
-                <form noValidate>
+                <form onSubmit={handleSubmit(onSubmit)} noValidate>
                   <div className="form-group">
                     <input
                       type="text"
@@ -112,8 +174,12 @@ const Signup = () => {
                     <p className="error-message">{errors.TandC.message}</p>
                   )}
                   <div className="sign">
-                    <button className="signup-button" type="submit">
-                      Signup
+                    <button
+                      className="sign-button"
+                      type="submit"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting ? "Signing Up..." : "Signup"}
                     </button>
                   </div>
                   <div className="log">
