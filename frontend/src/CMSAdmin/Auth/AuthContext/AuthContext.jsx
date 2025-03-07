@@ -13,6 +13,14 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("user", JSON.stringify(newUser));
   };
 
+  const onLogin = (loggedInUser, token, authentication) => {
+    setUser(loggedInUser);
+    setIsAuthenticated(authentication);
+    localStorage.setItem("user", JSON.stringify(loggedInUser));
+    localStorage.setItem("token", token);
+    localStorage.setItem("userId", loggedInUser._id);
+  };
+
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     const token = localStorage.getItem("token");
@@ -33,7 +41,7 @@ export const AuthProvider = ({ children }) => {
         user,
         isAuthenticated,
         onSignup,
-
+        onLogin,
         isLoading,
       }}
     >
