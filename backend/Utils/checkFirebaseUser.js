@@ -13,4 +13,4 @@ const checkFirebaseUserByEmail = async (email) => {
   }
 };
 
-module.exports = checkFirebaseUserByEmail;
+module.exports = { checkFirebaseUserByEmail };
