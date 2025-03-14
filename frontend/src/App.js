@@ -5,8 +5,6 @@ import Footer from "./Components/Footer/Footer.jsx";
 import Home from "./Components/Home/Home.js";
 import { Routes, Route } from "react-router-dom";
 import Form from "./CMSAdmin/Forms/Forms.jsx";
-import Signup from "./CMSAdmin/Auth/Signup/Signup.jsx";
-import Login from "./CMSAdmin/Auth/Login/Login.jsx";
 
 function App() {
   return (

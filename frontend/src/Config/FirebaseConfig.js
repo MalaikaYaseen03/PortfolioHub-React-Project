@@ -17,5 +17,4 @@ const storage = getStorage(app);
 const auth = getAuth(app);
 // Enable debug-level logging
 setLogLevel("debug");
-
 export { storage, app, auth };
