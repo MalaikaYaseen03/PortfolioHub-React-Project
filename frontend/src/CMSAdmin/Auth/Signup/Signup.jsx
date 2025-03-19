@@ -9,7 +9,7 @@ import { useAuth } from "../AuthContext/AuthContext";
 
 const Signup = () => {
   const { onSignup } = useAuth();
-  const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+  const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8080";
   const [isSubmitting, setIsSubmitting] = useState(false);
   const {
     register,
@@ -175,7 +175,7 @@ const Signup = () => {
                   )}
                   <div className="sign">
                     <button
-                      className="sign-button"
+                      className="signup-button"
                       type="submit"
                       disabled={isSubmitting}
                     >
