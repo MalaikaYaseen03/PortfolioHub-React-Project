@@ -38,9 +38,10 @@ const TestimonialRoute = require("../Routes/TestimonialRoute");
 const PublicationRoute = require("../Routes/PublicationRoute");
 const ContactRoute = require("../Routes/ContactRoute");
 const SkillsRoute = require("../Routes/SkillsRoute");
-
+const auth_users = require("../Routes/auth_users.js");
 // USE ROUTES
 
+app.use("/api/auth", auth_users);
 app.use("/api/v1/personalSkills", PersonalSkillsRoute);
 app.use("/api/v1/about", AboutRoute);
 app.use("/api/v1/skills", SkillsRoute);
