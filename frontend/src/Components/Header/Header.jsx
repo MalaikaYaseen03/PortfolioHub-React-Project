@@ -1,5 +1,4 @@
 import { useLocation } from "react-router-dom";
-import { handleDownloadCV } from "../UtilFunctions/handleDownloadCV";
 import { HashLink as Link } from "react-router-hash-link";
 import React, { useEffect, useState } from "react";
 import "./Header.css";
@@ -72,11 +71,6 @@ const Header = () => {
                   </Link>
                 </li>
               ))}
-              <li className="download">
-                <button onClick={handleDownloadCV} className="btn">
-                  Download CV
-                </button>
-              </li>
 
               {/* <li className="dropdown nav-link">
                   {isAuthenticated && user ? (

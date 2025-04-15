@@ -25,7 +25,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate(); // for programmatic navigation
-  const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
+  const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8080";
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // console.log("Login component received onLogin prop:", onLogin);
