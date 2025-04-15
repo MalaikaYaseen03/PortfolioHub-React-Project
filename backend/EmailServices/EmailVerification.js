@@ -8,6 +8,8 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_PASSWORD,
   },
 });
+console.log("Email:", process.env.SENDER_EMAIL);
+console.log("Password:", process.env.EMAIL_PASSWORD);
 
 const sendVerificationEmail = async (link, email) => {
   const mailOptions = {
