@@ -38,7 +38,7 @@ const TestimonialRoute = require("../Routes/TestimonialRoute");
 const ContactRoute = require("../Routes/ContactRoute");
 const SkillsRoute = require("../Routes/SkillsRoute");
 const auth_users = require("../Routes/auth_users.js");
-const DashboardRoute = require("../Routes/DynamicSectionsRoute.js");
+const DashboardRoute = require("../Routes/DashboardRoute.js");
 const DynamicSectionsRoute = require("../Routes/DynamicSectionsRoute.js");
 // USE ROUTES
 
