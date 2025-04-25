@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // Extract schema from mongoose
 const Schema = mongoose.Schema;
 
-const PublicationsSchema = new Schema({
+const DynamicSectionsSchema = new Schema({
   title: {
     type: String,
     required: true,
@@ -15,5 +15,8 @@ const PublicationsSchema = new Schema({
   },
 });
 //two argument need in schema 1st one is name  and 2nd one is Schema
-const PublicationModel = mongoose.model("Publications", PublicationsSchema);
-module.exports = PublicationModel;
+const DynamicSectionsModel = mongoose.model(
+  "DynamicSections",
+  DynamicSectionsSchema
+);
+module.exports = DynamicSectionsModel;

@@ -35,13 +35,15 @@ const CounterRoute = require("../Routes/CounterRoute");
 const ProjectsRoute = require("../Routes/ProjectsRoute");
 const CertificationRoute = require("../Routes/CertificationRoute");
 const TestimonialRoute = require("../Routes/TestimonialRoute");
-const PublicationRoute = require("../Routes/PublicationRoute");
 const ContactRoute = require("../Routes/ContactRoute");
 const SkillsRoute = require("../Routes/SkillsRoute");
 const auth_users = require("../Routes/auth_users.js");
+const DashboardRoute = require("../Routes/DynamicSectionsRoute.js");
+const DynamicSectionsRoute = require("../Routes/DynamicSectionsRoute.js");
 // USE ROUTES
 
 app.use("/api/auth", auth_users);
+app.use("/api/dashboard", DashboardRoute);
 app.use("/api/v1/personalSkills", PersonalSkillsRoute);
 app.use("/api/v1/about", AboutRoute);
 app.use("/api/v1/skills", SkillsRoute);
@@ -50,7 +52,7 @@ app.use("/api/v1/counter", CounterRoute);
 app.use("/api/v1/projects", ProjectsRoute);
 app.use("/api/v1/certifications", CertificationRoute);
 app.use("/api/v1/testimonials", TestimonialRoute);
-app.use("/api/v1/publications", PublicationRoute);
+app.use("/api/v1/dynamicSections", DynamicSectionsRoute);
 app.use("/api/v1/contact", ContactRoute);
 
 // Simple Route

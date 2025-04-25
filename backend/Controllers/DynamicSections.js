@@ -1,16 +1,16 @@
-const PublicationModel = require("../Models/PublicationsSchema");
+const DynamicSectionsModel = require("../Models/DynamicSectionSchema");
 
 // FUNCTION FOR GET REQUEST
-const getPublicationInfo = async (req, res) => {
+const getDynamicSections = async (req, res) => {
   try {
     // Fetch data from the database
-    const PublicationInfo = await PublicationModel.find();
+    const DynamicSection = await DynamicSectionsModel.find();
     // Check if the result is empty
-    if (PublicationInfo.length === 0) {
+    if (DynamicSection.length === 0) {
       return res.status(404).json({ message: "No data found." });
     }
     // Return the data with a success status
-    res.status(200).json(PublicationInfo);
+    res.status(200).json(DynamicSection);
   } catch (error) {
     console.error(error);
     // Send an error response in case of failure
@@ -18,4 +18,4 @@ const getPublicationInfo = async (req, res) => {
   }
 };
 
-module.exports = getPublicationInfo;
+module.exports = getDynamicSections;

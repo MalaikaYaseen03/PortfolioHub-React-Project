@@ -1,4 +1,4 @@
-const DashboardModel = require("../Models/dDashboardSchema");
+const DashboardModel = require("../Models/DashboardSchema");
 
 const getDashboard = async (req, res) => {
   // console.log("Dashboard get");
@@ -18,7 +18,7 @@ const getDashboardById = async (req, res) => {
   const Id = req.params.id;
 
   try {
-    const DashboardInfo = await Dashboard_Model.findById(Id); // Ensure you're querying by the correct field,`id`
+    const DashboardInfo = await DashboardModel.findById(Id); // Ensure you're querying by the correct field,`id`
     if (DashboardInfo.length === 0) {
       return res
         .status(404)
@@ -34,7 +34,7 @@ const getDashboardById = async (req, res) => {
 const postDashboard = async (req, res) => {
   // console.log("Inside post function");
 
-  const data = new Dashboard_Model({
+  const data = new DashboardModel({
     Icon: req.body.Icon,
     Title: req.body.Title,
     Description: req.body.Description,
