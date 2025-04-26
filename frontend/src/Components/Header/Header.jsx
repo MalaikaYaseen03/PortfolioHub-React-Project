@@ -1,126 +1,74 @@
-import { useLocation } from "react-router-dom";
-import { HashLink as Link } from "react-router-hash-link";
 import React, { useEffect, useState } from "react";
-import "./Header.css";
+import OffCanvasHeader from "./OffCanvasHeader";
+import HorizontalHeader from "./HorizontalHeader";
+import { useLocation } from "react-router-dom";
+import { useAuth } from "../../CMSAdmin/Auth/AuthContext/AuthContext";
 
 const Header = () => {
+  const [navLinks, setNavLinks] = useState([]);
+  const { user, onLogout, isAdminPage, isAuthenticated } = useAuth();
   const location = useLocation();
-  //  state for setting class on scroll of page
-  const [isScrolled, setIsScrolled] = useState(false);
+
+  // const userId = localStorage.getItem("userId");
+
+  const preventRefresh = (e) => {
+    e.preventDefault();
+  };
 
   useEffect(() => {
-    // function to set the scroll state for scrolling behaviour of page
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
+    // Update the navLinks based on authentication and admin page status
+    if (isAuthenticated && isAdminPage) {
+      setNavLinks([
+        { to: "/form/dashboard", label: "Dashboard" },
+        { to: "/form/manage-sections", label: "Manage Sections" },
+        { to: "/form/dynamicSections-form", label: "Create Sections" },
+        { to: "/form/settings", label: "Settings" },
+        { to: "/form/hero-form", label: "Introduction" },
+        { to: "/form/about-form", label: "About" },
+        { to: "/form/skills-form", label: "Skills" },
+        { to: "/form/service-form", label: "Services" },
+        { to: "/form/counter-form", label: "Counter" },
+        { to: "/form/portfolio-form", label: "Works" },
+        { to: "/form/testimonial-form", label: "Testimonial" },
+        { to: "/form/certification-form", label: "Certification" },
+        { to: "/form/contact-form", label: "Contact" },
+        { to: "/form/social-form", label: "Social Links" },
+        { to: "/form/CV-form", label: "Upload CV" },
+        { to: "/form/termsandconditions", label: "Terms and Conditions" },
+      ]);
+    } else {
+      setNavLinks([
+        { to: "/", label: "Home" },
+        { to: "#about", label: "About" },
+        { to: "#services", label: "Services" },
+        { to: "#work", label: "Work" },
+        { to: "#certifications", label: "Certifications" },
+        { to: "/#contact", label: "Contact" },
+      ]);
+    }
+  }, [isAuthenticated, isAdminPage]);
 
-    // adds event on scroll of webpage
-    window.addEventListener("scroll", handleScroll);
-
-    // cleanup function to remove event on scroll of webpage
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  const navLinks = [
-    { to: "/", label: "Home" },
-    { to: "/#about", label: "About" },
-    { to: "/#services", label: "Services" },
-    { to: "/#work", label: "Work" },
-    { to: "/#certifications", label: "Certifications" },
-    { to: "/#contact", label: "Contact" },
-  ];
   const isActiveLink = (link) => {
     const linkHash = link.split("#")[1] ? `#${link.split("#")[1]}` : null;
-    // Check if the location's hash matches the link hash or location's pathname matches the link
-    // if one is true, the result will be true
+    // console.log("Location", location);
+    // console.log("link:", link);
+
+    // Check if the location's hash matches the link hash
     return location.hash === linkHash || location.pathname === link;
   };
+
   return (
     <>
-      {/* Header for user portal */}
-      <header
-        id="header"
-        // if isScrolled is true, add the classname to 'header-scrolled' to apply css
-        className={`fixed-top ${isScrolled ? "header-scrolled" : ""}`}
-      >
-        <div className="container d-flex align-items-center justify-content-between">
-          <h1 className="logo">
-            <Link to="/" target="_blank">
-              PortfolioHub
-            </Link>
-          </h1>
-          <nav id="navbar" className="navbar">
-            {/*uses map function to display links to be shown on the header at once*/}
-            <ul>
-              {navLinks.map((link, index) => (
-                <li key={index}>
-                  {/* Adding 'active classname if the current link is active in the url bar to apply css for active links' */}
-                  <Link
-                    className={`nav-link ${
-                      isActiveLink(link.to) ? "active" : ""
-                    }`}
-                    smooth
-                    to={link.to}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-
-              {/* <li className="dropdown nav-link">
-                  {isAuthenticated && user ? (
-                    <>
-                      <a href="/" onClick={preventRefresh}>
-                        <span>{user.username}</span>
-                        <i className="bi bi-chevron-down" />
-                      </a>
-                      <ul>
-                        <li>
-                          <Link smooth to="/" onClick={onLogout}>
-                            Log Out
-                          </Link>
-                        </li>
-                        {isAdminPage ? (
-                          <li>
-                            <Link smooth to="/">
-                              Go to User Portal
-                            </Link>
-                          </li>
-                        ) : (
-                          <li>
-                            <Link smooth to="/form/dashboard">
-                              Go to Admin Portal
-                            </Link>
-                          </li>
-                        )}
-                      </ul>
-                    </>
-                  ) : (
-                    <>
-                      <a href="/" onClick={preventRefresh}>
-                        <span>Register</span>
-                        <i className="bi bi-chevron-down" />
-                      </a>
-                      <ul>
-                        <li>
-                          <Link smooth to="/form/login-form">
-                            Log in
-                          </Link>
-                        </li>
-                      </ul>
-                    </>
-                  )}
-                </li> */}
-            </ul>
-            {/* toggle for mobile navigation */}
-            <i className="bi bi-list mobile-nav-toggle" />
-          </nav>
-          {/* .navbar */}
+      <header id="header" className="fixed-top">
+        <div className="container">
+          <HorizontalHeader
+            isAuthenticated={isAuthenticated}
+            user={user}
+            preventRefresh={preventRefresh}
+            onLogout={onLogout}
+            isAdminPage={isAdminPage}
+          />
+          <OffCanvasHeader navLinks={navLinks} isActiveLink={isActiveLink} />
         </div>
       </header>
     </>
