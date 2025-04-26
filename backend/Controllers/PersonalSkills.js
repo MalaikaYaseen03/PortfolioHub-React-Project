@@ -7,14 +7,14 @@ const getPersonalSkills = async (req, res) => {
     const PersonalSkills = await Personal_SkillsModel.find();
     // Check if the result is empty
     if (PersonalSkills.length === 0) {
-      return res.status(404).json({ message: "No data found." });
+      return res.status(200).json({ message: "No data is available." });
     }
     // Return the data with a success status
-    res.status(200).json(PersonalSkills);
+    return res.status(200).json(PersonalSkills);
   } catch (error) {
     console.error(error);
     // Send an error response in case of failure
-    res.status(500).json({ message: "Faled to fetch data" });
+    return res.status(500).json({ message: "Faled to fetch data" });
   }
 };
 
