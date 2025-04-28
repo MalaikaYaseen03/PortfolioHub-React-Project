@@ -42,8 +42,8 @@ const DashboardRoute = require("../Routes/DashboardRoute.js");
 const DynamicSectionsRoute = require("../Routes/DynamicSectionsRoute.js");
 // USE ROUTES
 
-app.use("/api/auth", auth_users);
-app.use("/api/dashboard", DashboardRoute);
+app.use("/api/v1/auth", auth_users);
+app.use("/api/v1/dashboard", DashboardRoute);
 app.use("/api/v1/personalSkills", PersonalSkillsRoute);
 app.use("/api/v1/about", AboutRoute);
 app.use("/api/v1/skills", SkillsRoute);

@@ -122,4 +122,23 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
+const logout = async (req, res) => {
+  try {
+    // Get user ID from the token (req.user is set in the verifyToken middleware)
+    const userId = req.user.firebaseUID;
+
+    // Find the user by ID and update loggedIn to false
+    await UserModel.findOneAndUpdate(
+      { firebaseUID: userId },
+      { loggedIn: false },
+      { new: true }
+    );
+    return res.status(200).json({ message: "Logged out successfully" });
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ message: "Logout failed", error: error.message });
+  }
+};
+module.exports = { register, login, logout };
