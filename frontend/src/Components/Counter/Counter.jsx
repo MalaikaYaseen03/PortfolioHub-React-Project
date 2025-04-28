@@ -16,6 +16,7 @@ const Counter = ({ counter = [] }) => {
       {/* ======= Counter Section ======= */}
       {counter && (
         <div
+          id="counter"
           className="section-counter paralax-mf bg-image"
           style={{ backgroundImage: "url(../assets/img/counters-bg.jpg)" }}
         >

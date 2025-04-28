@@ -1,10 +1,21 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  useCallback,
+} from "react";
+import { isTokenExpired } from "./CheckTokenExpiry";
+import { toast } from "react-toastify";
+import { auth } from "../../../Config/FirebaseConfig";
+import { signOut } from "firebase/auth";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8080";
 
   const onSignup = (newUser, authentication) => {
     setUser(newUser);
@@ -19,6 +30,51 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("token", token);
     localStorage.setItem("userId", loggedInUser._id);
   };
+
+  const onLogout = useCallback(async () => {
+    const token = localStorage.getItem("token");
+
+    if (token && isTokenExpired(token)) {
+      console.log("Token expired. Logging out.");
+      // Clear user session
+      setUser(null);
+      setIsAuthenticated(false);
+      localStorage.removeItem("user");
+      localStorage.removeItem("token");
+      // localStorage.removeItem("userId");
+      toast.info("Session expired. Logged out automatically.");
+      await signOut(auth);
+      return;
+    }
+
+    // Proceed with backend logout if the token is valid
+    if (token) {
+      try {
+        const response = await fetch(`${API_URL}/api/v1/auth/logout`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          setUser(null);
+          setIsAuthenticated(false);
+          localStorage.removeItem("user");
+          localStorage.removeItem("token");
+          // localStorage.removeItem("userId");
+          toast.success("Logged out successfully!");
+        } else {
+          toast.error("Failed to log out. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error during logout:", error);
+        toast.error("Error logging out. Please try again.");
+      }
+    }
+
+    await signOut(auth);
+  }, [API_URL]);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -42,6 +98,7 @@ export const AuthProvider = ({ children }) => {
         onSignup,
         onLogin,
         isLoading,
+        onLogout,
       }}
     >
       {children}

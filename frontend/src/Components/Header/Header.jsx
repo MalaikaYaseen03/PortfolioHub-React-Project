@@ -3,6 +3,7 @@ import OffCanvasHeader from "./OffCanvasHeader";
 import HorizontalHeader from "./HorizontalHeader";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../../CMSAdmin/Auth/AuthContext/AuthContext";
+import "./Header.css";
 
 const Header = () => {
   const [navLinks, setNavLinks] = useState([]);
@@ -38,10 +39,12 @@ const Header = () => {
       ]);
     } else {
       setNavLinks([
-        { to: "/", label: "Home" },
+        { to: "/", label: "Introduction" },
         { to: "#about", label: "About" },
         { to: "#services", label: "Services" },
-        { to: "#work", label: "Work" },
+        { to: "#counter", label: "Counter" },
+        { to: "#work", label: "Projects" },
+        { to: "#testimonial", label: "Testimonial" },
         { to: "#certifications", label: "Certifications" },
         { to: "/#contact", label: "Contact" },
       ]);

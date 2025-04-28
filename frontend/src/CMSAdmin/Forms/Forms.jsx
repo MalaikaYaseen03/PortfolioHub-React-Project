@@ -17,7 +17,7 @@ const Form = () => {
           <Route path="/login-form" element={<Login />} />
           {/* Protected Route */}
           <Route
-            path="/form/dashboard"
+            path="/dashboard"
             element={
               <PrivateRoute>
                 {" "}

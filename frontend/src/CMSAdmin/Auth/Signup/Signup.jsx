@@ -32,7 +32,7 @@ const Signup = () => {
 
     try {
       // Make a request to your backend to handle signup
-      const response = await fetch(`${API_URL}/api/auth/register`, {
+      const response = await fetch(`${API_URL}/api/v1/auth/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
