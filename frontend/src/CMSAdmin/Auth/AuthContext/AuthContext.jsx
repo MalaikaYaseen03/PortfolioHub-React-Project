@@ -31,9 +31,11 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("userId", loggedInUser._id);
   };
 
+  // Logout Function
   const onLogout = useCallback(async () => {
     const token = localStorage.getItem("token");
 
+    // checking if the token is expired
     if (token && isTokenExpired(token)) {
       console.log("Token expired. Logging out.");
       // Clear user session
@@ -43,6 +45,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.removeItem("token");
       // localStorage.removeItem("userId");
       toast.info("Session expired. Logged out automatically.");
+      // signing out from the firebase as well
       await signOut(auth);
       return;
     }
@@ -57,6 +60,7 @@ export const AuthProvider = ({ children }) => {
           },
         });
 
+        // if the response is on, setting the states
         if (response.ok) {
           setUser(null);
           setIsAuthenticated(false);
@@ -72,8 +76,6 @@ export const AuthProvider = ({ children }) => {
         toast.error("Error logging out. Please try again.");
       }
     }
-
-    await signOut(auth);
   }, [API_URL]);
 
   useEffect(() => {
