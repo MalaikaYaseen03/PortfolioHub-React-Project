@@ -17,12 +17,14 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const API_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:8080";
 
+  // Function to be executed after successful signup
   const onSignup = (newUser, authentication) => {
     setUser(newUser);
     setIsAuthenticated(authentication);
     localStorage.setItem("user", JSON.stringify(newUser));
   };
 
+  // Function to be executed after successful login
   const onLogin = (loggedInUser, token, authentication) => {
     setUser(loggedInUser);
     setIsAuthenticated(authentication);
@@ -79,9 +81,11 @@ export const AuthProvider = ({ children }) => {
   }, [API_URL]);
 
   useEffect(() => {
+    // Get the user and token from localstorage
     const storedUser = localStorage.getItem("user");
     const token = localStorage.getItem("token");
 
+    // if both are valid set the authentication true and user
     if (storedUser && token) {
       setUser(JSON.parse(storedUser));
       setIsAuthenticated(true);
